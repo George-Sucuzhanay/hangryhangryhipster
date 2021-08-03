@@ -89,13 +89,20 @@ const createCard = (recipeData) => {
     let source = recipeData.spoonacularSourceUrl;
     let likes = recipeData.aggregateLikes;
 
+    if(image===undefined){
+        image="https://media.istockphoto.com/photos/question-mark-made-of-corn-seeds-on-plate-picture-id467083203?k=6&m=467083203&s=612x612&w=0&h=pfMfAgrliETJB2cUsxQBIkSXNlAKT4gf4hEEz80r4Hw="
+    }    
+
   return `
-            <div class="card deck col-sm-3" style="background:white;">
+            <div class="card deck col-sm-3 mx-0 px-0 mb-3" style="background:white;">
                 <img class="card--img-top" src="${image}" alt="${title}">
 
                 <div class="card-body">
-                    <h4 class="card-title">${title}</h4>
-                    <p class="card-text">Some example text.</p>
+                    <section>
+                    <h4 class="card-title text-center">${title}</h4>
+                </div>
+
+                <div class="card-footer border-0" style="background:white;">
                     <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
             </div>`;
