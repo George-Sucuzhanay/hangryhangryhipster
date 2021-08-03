@@ -94,16 +94,18 @@ const createCard = (recipeData) => {
     }    
 
   return `
-            <div class="card deck col-sm-3 mx-0 px-0 mb-3" style="background:white;">
-                <img class="card--img-top" src="${image}" alt="${title}">
+            <div class="col-sm-3">
+                <div class="card px-0 mb-3" style="background:white;">
+                    <img class="card--img-top" src="${image}" alt="${title}">
 
-                <div class="card-body">
-                    <section>
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
+                    <div class="card-body">
+                        <section>
+                        <h4 class="card-title text-center">${title}</h4>
+                    </div>
 
-                <div class="card-footer border-0" style="background:white;">
-                    <a href="#" class="btn btn-primary">See Profile</a>
+                    <div class="card-footer border-0" style="background:white;">
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
                 </div>
             </div>`;
 }
