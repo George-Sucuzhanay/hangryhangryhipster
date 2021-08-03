@@ -83,32 +83,33 @@ function exploreData(data){
 
 const createCard = (recipeData) => {
 
-  return `
-         <div class="column is-one-quarter">
-         <div class="card" style="background: ${color};">
-           <header class="card-header">
-             <p class="card-header-title">${note.title}</p>
-           </header>
-           <div class="card-content">
-             <div class="content">${note.text}</div>
-           </div>
-             <footer class="card-footer">
-    <button class="card-footer-item" onClick="editNote('${noteId}')" >Edit</button>
-    <button class="card-footer-item" onclick="delNote('${noteId}')">Delete</button>
-  </footer>
-  ${noteDate}
-         </div>
-       </div> `;
+    let id = recipeData.id;
+    let image = recipeData.image;
+    let title = recipeData.title;
+    let source = recipeData.spoonacularSourceUrl;
+    let likes = recipeData.aggregateLikes;
 
+  return `
+        <div class="col-md-6">
+            <div class="card" style="background:white;">
+                <img class="card--img-top" src="${image}" alt="${title}">
+
+                <div class="card-body">
+                    <h4 class="card-title">${title}</h4>
+                    <p class="card-text">Some example text.</p>
+                    <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+            </div> 
+        </div>`;
 }
 
 const renderDataAsHTML = (data) => {
-    let cards = "";
+    let cards = `<div class="card-deck"></div>`;
     for (let item in data) {
         console.log(data[item])
-        //cards+=createCard(data[item])
+        cards+=createCard(data[item])
   }
-  //document.querySelector("#app").innerHTML = cards;
+  document.querySelector("#app").innerHTML = cards + `</div>`;
 };
 
 
