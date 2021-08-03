@@ -90,7 +90,7 @@ const createCard = (recipeData) => {
     let likes = recipeData.aggregateLikes;
 
   return `
-        <div class="col-md-6">
+        <div class="col-sm-3 col-md-3 pb-2">
             <div class="card" style="background:white;">
                 <img class="card--img-top" src="${image}" alt="${title}">
 
