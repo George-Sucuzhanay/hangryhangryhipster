@@ -90,8 +90,7 @@ const createCard = (recipeData) => {
     let likes = recipeData.aggregateLikes;
 
   return `
-        <div class="card deck col-sm-3">
-            <div class="card" style="background:white;">
+            <div class="card deck col-sm-3" style="background:white;">
                 <img class="card--img-top" src="${image}" alt="${title}">
 
                 <div class="card-body">
@@ -99,8 +98,7 @@ const createCard = (recipeData) => {
                     <p class="card-text">Some example text.</p>
                     <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
-            </div> 
-        </div>`;
+            </div>`;
 }
 
 const renderDataAsHTML = (data) => {
