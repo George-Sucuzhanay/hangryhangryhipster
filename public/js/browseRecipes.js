@@ -90,7 +90,7 @@ const createCard = (recipeData) => {
     let likes = recipeData.aggregateLikes;
 
   return `
-        <div class="col-sm-3 col-md-3 pb-2">
+        <div class="card deck col-sm-3">
             <div class="card" style="background:white;">
                 <img class="card--img-top" src="${image}" alt="${title}">
 
@@ -104,12 +104,13 @@ const createCard = (recipeData) => {
 }
 
 const renderDataAsHTML = (data) => {
-    let cards = `<div class="card-deck"></div>`;
+    //let cards = `<div class="card-deck"></div>`;
+    let cards = ""
     for (let item in data) {
         console.log(data[item])
         cards+=createCard(data[item])
   }
-  document.querySelector("#app").innerHTML = cards + `</div>`;
+  document.querySelector("#app").innerHTML = cards;
 };
 
 
