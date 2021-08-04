@@ -103,7 +103,7 @@ const createCard = (recipeData) => {
                     </div>
 
                     <div class="card-footer border-0" style="background:white;">
-                        <button class="btn" onclick="addToFavorites()"><i class="bi bi-star"></i></button>
+                        <span href="" class="favme glyphicon glyphicon-heart"></span>
                     </div>
                 </div>
             </div>`;
@@ -119,7 +119,18 @@ const renderDataAsHTML = (data) => {
   document.querySelector("#app").innerHTML = cards;
 };
 
-function addToFavorites(){
 
-    
-}
+// Favorite Button - Heart
+$('.favme').click(function() {
+	$(this).toggleClass('active');
+});
+
+/* when a user clicks, toggle the 'is-animating' class */
+$(".favme").on('click touchstart', function(){
+  $(this).toggleClass('is_animating');
+});
+
+/*when the animation is over, remove the class*/
+$(".favme").on('animationend', function(){
+  $(this).toggleClass('is_animating');
+});
