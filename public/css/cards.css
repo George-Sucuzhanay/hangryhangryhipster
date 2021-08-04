@@ -34,13 +34,18 @@ a:active {
     font-size: 20px;
 }
 
+button {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 .fav-btn {
 	display:flex;
 	height: 100%;
 	justify-content: center;
 	align-items: center;
 }
-
 
 @keyframes favme-anime {
   0%   { 
@@ -78,7 +83,7 @@ a:active {
 	}
 }
 
-.favme {
+/* .favme {
 	display:block;
 	font-size: ms(2);
 	width: auto;
@@ -87,16 +92,11 @@ a:active {
 	box-shadow: none;
 	transition: all .2s ease;
 	color: #CBCDCE;
-	margin: 0;}
+	margin: 0;} */
 	
-.favme:active {
+.mystyle {
 		color: #DC3232;
     }
 
-.favme:hover {
-		animation: favme-hover .3s infinite alternate;
-    }
-    
-.favme.is_animating {
-		animation: favme-anime .3s;
-	}
+
+
