@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Off-canvas Sidebar in Bootstrap 4 with Optional Overlay, Offset and Transitions</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<style>
+	.bs-canvas-overlay {
+   		opacity: 0;
+		z-index: -1;
+	}
+	
+	.bs-canvas-overlay.show {
+   		opacity: 0.85;
+		z-index: 1100;
+	}
+	
+	.bs-canvas {
+		top: 0;
+		width: 0;
+		z-index: 1110;		
+		overflow-x: hidden;		
+		overflow-y: auto;		
+	}
+	
+	.bs-canvas-left {
+		left: 0;
+	}
+	
+	.bs-canvas-anim {
+		transition: all .4s ease-out;
+		-webkit-transition: all .4s ease-out;
+		-moz-transition: all .4s ease-out;
+		-ms-transition: all .4s ease-out;
+	}
+		
+</style>
+</head>
+
+<body>
+    <div class="bs-canvas-overlay bs-canvas-anim bg-dark position-fixed w-100 h-100"></div>
+    <div class="bs-offset-main bs-canvas-anim">
+        <button class="btn btn-danger" type="button" data-toggle="canvas" data-target="#bs-canvas-left" aria-expanded="false" aria-controls="bs-canvas-left">&#9776;</button>
+    </div>   
+
+</div>
+<!--nav bar content-->
+<div id="bs-canvas-left" class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed bg-light h-100">
+	<header class="bs-canvas-header p-3 bg-danger">
+    	<h4 class="d-inline-block text-light mb-0">Canvas Header</h4>
+        <button type="button" class="bs-canvas-close close" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
+    </header>  
+</div>
+
+<!--app container-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+
+jQuery(document).ready(function($){
+	var bsDefaults = {
+			offset: true,
+			overlay: true,
+			width: '330px'		
+		},
+		bsMain = $('.bs-offset-main'),
+		bsOverlay = $('.bs-canvas-overlay');	
+	
+	$('[data-toggle="canvas"][aria-expanded="false"]').on('click', function(){
+		var canvas = $(this).data('target'),
+			opts = $.extend({}, bsDefaults, $(canvas).data()),
+			prop = $(canvas).hasClass('bs-canvas-right') ? 'margin-right' : 'margin-left';
+		
+		if(opts.width === '100%')
+			opts.offset = false;
+		
+		$(canvas).css('width', opts.width);
+		if(opts.offset && bsMain.length)			
+			bsMain.css(prop, opts.width);		
+		
+		$(canvas + ' .bs-canvas-close').attr('aria-expanded', "true");
+		$('[data-toggle="canvas"][data-target="' + canvas + '"]').attr('aria-expanded', "true");
+		if(opts.overlay && bsOverlay.length)
+			bsOverlay.addClass('show');
+		return false;
+	});			
+	
+	$('.bs-canvas-close, .bs-canvas-overlay').on('click', function(){
+		var canvas, aria;
+		if($(this).hasClass('bs-canvas-close')) {
+			canvas = $(this).closest('.bs-canvas');
+			aria = $(this).add($('[data-toggle="canvas"][data-target="#' + canvas.attr('id') + '"]'));
+			if(bsMain.length)
+				bsMain.css(($(canvas).hasClass('bs-canvas-right') ? 'margin-right' : 'margin-left'), '');	
+		} else {
+			canvas = $('.bs-canvas');
+			aria = $('.bs-canvas-close, [data-toggle="canvas"]');
+			if(bsMain.length)
+				bsMain.css({'margin-left': '', 'margin-right': ''});
+		}
+		canvas.css('width', '');
+		aria.attr('aria-expanded', "false");
+		if(bsOverlay.length)	
+			bsOverlay.removeClass('show');		
+		return false;
+	});
+});
+</script>
+</body>
+</html>
