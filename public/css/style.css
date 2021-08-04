@@ -42,12 +42,16 @@ body h1 {
     background-color: rgb(230, 84, 73);
     transform:translateX(2vw);
     text-align: center;
-    position: relative;
+    
+}
+div#containerB{
+    position: absolute;
     top: 35%;
     left: 0;
     right: 0;
     margin-top: -9px;
 }
+
 .icon {
   position: absolute;
   left: 0;
