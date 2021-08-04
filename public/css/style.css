@@ -3,7 +3,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   background-color: rgb(230, 84, 73);
   font-family: 'Raleway', sans-serif;
 }
