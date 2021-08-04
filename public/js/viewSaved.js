@@ -99,7 +99,7 @@ const createCard = (recipeData) => {
     let path = "users/"+userGlobalID+"/favorites"
   return `
             <div class="col-sm-3">
-                <div class="card d--flex align-items-stretch px-0 mb-3" style="background:white;">
+                <div class="card d--flex align-items-stretch px-0 mb-3 border-0" style="background:white;">
                     <img class="card--img-top" src="${image}" alt="${title}" style="width:100%;background-color:black;">
 
                     <div class="card-body" style="text-align:center;height:2.75vw;">
