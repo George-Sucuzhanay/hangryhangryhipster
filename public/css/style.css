@@ -44,13 +44,6 @@ body h1 {
     text-align: center;
     
 }
-div#containerB{
-    position: absolute;
-    top: 35%;
-    left: 0;
-    right: 0;
-    margin-top: -9px;
-}
 
 .icon {
   position: absolute;
