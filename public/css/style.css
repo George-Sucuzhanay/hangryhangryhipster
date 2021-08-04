@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #f2f2f3;
+  background-color: rgb(230, 84, 73);
   font-family: 'Raleway', sans-serif;
 }
 body h1 {
@@ -12,7 +12,6 @@ body h1 {
   margin-top: 35px;
   color: #333;
   letter-spacing: 1px;
-  text-shadow: 1px 1px #f2f2f3, -1px -1px #f2f2f3;
 }
 #overlay {
   position: fixed; /* Sit on top of the page content */
@@ -40,6 +39,7 @@ body h1 {
     display:block;
 }
 #containerB{
+    background-color: rgb(230, 84, 73);
     transform:translateX(2vw);
 }
 .icon {
