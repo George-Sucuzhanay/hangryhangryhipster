@@ -49,7 +49,7 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      body { background: rgb(230, 84, 73);; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
       #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
       #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
@@ -106,19 +106,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <h1>Gen New Plan</h1>
-                    <h1>View Past Plans</h1>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-warning">Send Phone Reminder + Route</button>
+                <div class="col d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-lg btn-primary">Gen New Plan</button>
                     <br>
-                    <button type="button" class="btn btn-success">Order Ingredients Online</button>
+                    <button type="button" class="btn btn-lg btn-info">View Past Plans</button>
                 </div>
-            </div>
+                <div class="col d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-lg btn-warning">Send Phone Reminder + Route</button>
+                    <br>
+                    <button type="button" class="btn btn-lg btn-success">Order Ingredients Online</button>
+                </div>
+            </div><br><br>
             <div class="row">
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Input your Recipe Here">
             </div>
+             <br><br>
             <div class="row">
             <div class="col">
                 <div class="card card-dark bg-light">
@@ -165,9 +167,9 @@
                     </div>
                 </div>
             </div>
-            <div id="app" class="row">
+            <!-- <div id="app" class="row"> -->
                 <!-- Note cards will render here -->
-            </div>
+            <!-- </div> -->
     </div>
 
     
