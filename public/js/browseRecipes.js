@@ -188,7 +188,7 @@ function fillModal(id){
     let myModalBody = document.querySelector("#myModalBody");
     //console.log(id)
     const spoonacularURL = "https://api.spoonacular.com/recipes/"+id+"/information"
-    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+    const apiKey = "26c949c96bd14a5782800a2b49969bc8"
     const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
     fetch(authorizedURL)
     .then(response => {

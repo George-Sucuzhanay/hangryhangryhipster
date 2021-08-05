@@ -9,6 +9,7 @@ window.onload = event => {
         console.log("Logged in as: " + user.displayName);
         const googleUserId = user.uid;
         userGlobalID = googleUserId;
+        document.querySelector("#app").innerHTML="";
         //recipeFeed();   
         generateRecipeFeed(); 
         //loadFavStyle();  
@@ -60,44 +61,42 @@ window.onload = event => {
 let globalRecipeData = null
 
 function generateRecipeFeed(){
+    document.querySelector("#app").innerHTML="";
     console.log('working')
     let arr = [];
     const recipes = firebase.database().ref(`users/${userGlobalID}/favorites`);
     recipes.on("value", snapshot => {
         const data = snapshot.val();
+        if(data!=null){
         for(let item in Object.keys(data)){
             globalRecipeData = data;
             idFavs = data[Object.keys(data)[item]].recipeID;
             arr.push(idFavs);
         }
-        let recipeArray = exploreData(arr);
-        //console.log(recipeArray)
-        renderDataAsHTML(recipeArray);
+
+        exploreData(arr)}
   });
 }
 
+let temp = "123"
 function exploreData(data){
-    let arr = [];
-    for(let item in data){
-        let temp = null;
+        document.querySelector("#app").innerHTML="";
+        for(let item in data){
         idFav = data[item];
-        //console.log(idFav)
+        recipeGlobalIDArr.push(idFav)
+        console.log(idFav)
         const spoonacularURL = "https://api.spoonacular.com/recipes/"+idFav+"/information"
-        const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+        const apiKey = "205a407444b3b4d0d8aaa0bfc0d247b07"
         const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
         fetch(authorizedURL)
         .then(response => {
             return response.json();
         })
         .then(myjson => {
-            let stringy = JSON.stringify(myjson)
-            temp = stringy
+            //temp = myjson
+            document.querySelector("#app").innerHTML+=renderDataAsHTML(myjson)
         });
-        //console.log("pushed")
-        arr.push(temp)
-        };
-        console.log(arr.length)
-    return arr;
+    }
 }
 
 let recipeGlobalIDArr = []
@@ -116,7 +115,7 @@ const createCard = (recipeData) => {
     }    
     let path = "users/"+userGlobalID+"/favorites"
   return `
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="card${id}">
                 <div class="panel d--flex align-items-stretch px-0 mb-3" style="background:white;border:none;">
                 <div class="panel-heading" style="padding:0px;">
                 <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="padding:0px;"><img src="${image}" alt="${title}" style="object-fit:cover;width:100%;background-color:black;"></button></div>
@@ -127,43 +126,41 @@ const createCard = (recipeData) => {
                         text-overflow: ellipsis;}">${title}</a> 
                     </div class="panel-footer">
                     <br> <br> <br> <br> <br> <br> 
-                        <button class="btn" onclick="updateFavorites(${id})"><i id="${id}" class="favme glyphicon glyphicon-heart"></i></button>    
+                        <button class="btn" onclick="updateFavorites(${id})"><i id="${id}" class="favme glyphicon glyphicon-heart mystyle"></i></button>    
                                      
                 </div>
             </div>`      
 }
 
-function loadFavStyle(id){
-    console.log('loading fav styles')
-        firebase.database().ref(`users/${userGlobalID}/favorites`)
-            .once('value', s => {
-                if (s.exists()) {
-                    for(item in recipeGlobalIDArr){
-                        let id = recipeGlobalIDArr[item];
-                        let favme = document.getElementById(id) 
-                        //console.log(id)
-                        for(let item in Object.keys(s.val())){
-                            idFavs = s.val()[Object.keys(s.val())[item]].recipeID;
-                            //console.log(idFavs)
-                            if(idFavs==id){
-                                console.log('already favorited')
-                                favme.classList.add('mystyle')
-                            }
-                        }
-                    }
-                }
-            })
-}
+// function loadFavStyle(id){
+//     console.log('loading fav styles')
+//         firebase.database().ref(`users/${userGlobalID}/favorites`)
+//             .once('value', s => {
+//                 if (s.exists()) {
+//                     for(item in recipeGlobalIDArr){
+//                         let id = recipeGlobalIDArr[item];
+//                         //console.log(typeof(id))
+//                         let favme = document.getElementById(id) 
+//                         console.log(favme)
+//                         //console.log(id)
+//                         for(let item in Object.keys(s.val())){
+//                             idFavs = s.val()[Object.keys(s.val())[item]].recipeID;
+//                             //console.log(idFavs)
+//                             if(idFavs==id){
+//                                 console.log('already favorited')
+//                                 favme.classList.add('mystyle')
+//                             }
+//                         }
+//                     }
+//                 }
+//             })
+// }
 
 const renderDataAsHTML = (data) => {
     console.log(data)
-    //let cards = `<div class="card-deck"></div>`;
-    let cards = ""
-    for (let item in data) {
-        //console.log(data[item])
-        console.log(data[item])
-        //cards+=createCard(data[item])
-  }
+    let card = "";
+      card = createCard(data)
+     return card;
   //document.querySelector("#app").innerHTML = cards;
 
 };
@@ -171,20 +168,10 @@ const renderDataAsHTML = (data) => {
 
 function updateFavorites(id){
     console.log('entered')
-    favme = document.getElementById(id) 
-
-    if(!favme.classList.contains('mystyle')){
-        favme.classList.add('mystyle');
-        console.log('favorited')
-        firebase
-            .database()
-            .ref(`users/${userGlobalID}/favorites`)
-            .push({
-                recipeID: id
-            });
-    }
-    else{
+        favme = document.getElementById(id) 
         favme.classList.remove('mystyle');
+        card = document.getElementById("card"+id)
+        card.remove()
         console.log('unfavorited')
         firebase.database().ref(`users/${userGlobalID}/favorites`)
         .once('value', s => {
@@ -200,5 +187,4 @@ function updateFavorites(id){
                 }
                 }
             })
-                }
 }
