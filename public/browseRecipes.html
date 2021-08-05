@@ -5,7 +5,7 @@
     <title>Browse Recipes</title>
     
         <link
-      href="https://fonts.googleapis.com/css?family=Staatliches"
+      href="https://fonts.googleapis.com/css?family=Staatliches|Londrina+Solid"
       rel="stylesheet"
     />
 
@@ -95,16 +95,48 @@
 			</ul>
 		</div>
 		<div class="info">
-			<div class="logo"><p>LOGO</p></div>
-			<div class="name">Co. Name</div>
-			<div class="quote">WHAT WE DO IS WHO WE ARE</div>
-			<div class="social">
-				<a target="_blank" href="https://twitter.com/tmrDevelops"><i class="fa fa-twitter"></i></a>
-			</div>
+            <figure class="swing">
+            <div style="word-wrap:break;width:200px;background-color:wheat;">
+                <p id="joke" style="color:black; font-family: Staatliches; font-size:15px;">This is a test.</p>
+                <!-- <script>
+                    let jokes = document.querySelector("#joke")
+                    const spoonacularURL = "https://api.spoonacular.com/food/jokes/random"
+                    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+                    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
+                    fetch(authorizedURL)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(myjson => {
+                        //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
+                        jokes.innerHTML = myjson.text
+                    });
+        </script> -->
+            </div>
+        </figure>  
+		</div>
 		</div>
     </div>
     </div>
-    <div id="overlay"></div>
+    <div id="overlay">
+        <div class="container vertical-center" style="padding:20px;">
+        <p id="trivia" style="display:flex;justify-content:center;color:white;font-size:50px;font-family:Londrina Solid; text-align:center;margin-right: 150px;margin-left: 450px;">This is a Test</p>
+        <!-- <script>
+    let trivia = document.querySelector("#trivia")
+    const spoonacularURL = "https://api.spoonacular.com/food/trivia/random"
+    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
+    fetch(authorizedURL)
+    .then(response => {
+        return response.json();
+    })
+    .then(myjson => {
+        //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
+        trivia.innerHTML = "Fun Food Fact: " + myjson.text
+    });
+        </script> -->
+        </div>        
+    </div>
     <!--app container-->
     <div id="containerB" class="container">
         
