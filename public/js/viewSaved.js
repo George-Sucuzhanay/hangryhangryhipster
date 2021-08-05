@@ -11,7 +11,7 @@ window.onload = event => {
         userGlobalID = googleUserId;
         //recipeFeed();   
         generateRecipeFeed(); 
-        loadFavStyle();  
+        //loadFavStyle();  
     } else {
       // If not logged in, navigate back to login page.
       window.location = "index.html";
@@ -60,26 +60,43 @@ window.onload = event => {
 let globalRecipeData = null
 
 function generateRecipeFeed(){
-    const recipes = firebase.database().ref(`recipes`);
+    console.log('working')
+    let arr = [];
+    const recipes = firebase.database().ref(`users/${userGlobalID}/favorites`);
     recipes.on("value", snapshot => {
         const data = snapshot.val();
-        globalRecipeData = data;
-        let recipeArray = exploreData(globalRecipeData);
+        for(let item in Object.keys(data)){
+            globalRecipeData = data;
+            idFavs = data[Object.keys(data)[item]].recipeID;
+            arr.push(idFavs);
+        }
+        let recipeArray = exploreData(arr);
+        //console.log(recipeArray)
         renderDataAsHTML(recipeArray);
   });
 }
 
 function exploreData(data){
-    let jsonObj = null;
+    let arr = [];
+    let = temp = null;
     for(let item in data){
-        jsonObj = data[item].JSONObj.recipes;
-        //console.log(jsonObj);
-    };
-    // console.log(jsonObj[0])
-    // for(let item in jsonObj){
-    //     console.log(jsonObj[item])
-    // }
-    return jsonObj;
+        idFav = data[item];
+        //console.log(idFav)
+        const spoonacularURL = "https://api.spoonacular.com/recipes/"+idFav+"/information"
+        const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+        const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
+        fetch(authorizedURL)
+        .then(response => {
+            return response.json();
+        })
+        .then(myjson => {
+            temp = myjson
+        });
+        arr.push(temp)
+        //console.log("pushed")
+        };
+        //console.log(arr.length)
+    return arr;
 }
 
 let recipeGlobalIDArr = []
@@ -138,13 +155,15 @@ function loadFavStyle(id){
 }
 
 const renderDataAsHTML = (data) => {
+    console.log(data)
     //let cards = `<div class="card-deck"></div>`;
     let cards = ""
     for (let item in data) {
         //console.log(data[item])
-        cards+=createCard(data[item])
+        console.log(data[item])
+        //cards+=createCard(data[item])
   }
-  document.querySelector("#app").innerHTML = cards;
+  //document.querySelector("#app").innerHTML = cards;
 
 };
 

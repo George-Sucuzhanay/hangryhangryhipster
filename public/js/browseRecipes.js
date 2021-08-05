@@ -138,6 +138,7 @@ function loadFavStyle(id){
 
 const renderDataAsHTML = (data) => {
     //let cards = `<div class="card-deck"></div>`;
+    //console.log(data)
     let cards = ""
     for (let item in data) {
         //console.log(data[item])
@@ -185,22 +186,22 @@ function updateFavorites(id){
 function fillModal(id){
     let myModalTitle = document.querySelector("#myModalTitle");
     let myModalBody = document.querySelector("#myModalBody");
-    let info = null;
+    //console.log(id)
     const spoonacularURL = "https://api.spoonacular.com/recipes/"+id+"/information"
     const apiKey = "26d5ee965b7041448718ba0f2475dc94"
-    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&number=100"
+    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
     fetch(authorizedURL)
     .then(response => {
+        console.log('fetching')
         return response.json();
     })
-    .then(myjson => {
+    .then(info => {
         //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
-        info = myjson;
-    });
-    let modalInfo = [
+            let modalInfo = [
         info.vegetarian, info.vegan, info.glutenFree,
         info.dairyFree, info.weightWatcherSmartPoints, info.healthScore, info.title, info.readyInMinutes, info.servings, info.summary, info.dishTypes, info.diets, info.analyzedInstructions 
     ]
-    myModalTitle.innerHTML = id;
-    console.log(id)
+        myModalTitle.innerHTML = modalInfo[6];
+        myModalBody.innerHTML = "";
+    });
 }
