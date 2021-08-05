@@ -1,7 +1,6 @@
-.card{
+.panel{
     height:25vw;
 }
-
 a:link {
   color: rgb(0, 0, 0);
   background-color: transparent;
@@ -32,12 +31,14 @@ a:active {
 
 .glyphicon {
     font-size: 20px;
+    background-color: white;
 }
 
 button {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
+    background-color: white;
 }
 
 .fav-btn {

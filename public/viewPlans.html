@@ -18,16 +18,15 @@
       rel="stylesheet"
       href="css/cards.css"
     />
-
-    <link
-      rel="stylesheet"
-      href="css/pages.css"
-    />
     <link
       rel="stylesheet"
       href="css/style.css"
     />
 
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- update the version number as needed -->
@@ -62,39 +61,47 @@
         body { border-top: 16px solid #ffa100; }
       }
     </style>
+    <style>
+        .icon a{
+            font-size:1.8em;
+            transform: translate(-7%, 0%);
+        }
+    </style>
 
   </head>
   <body>
-<div class="container" id="containerA">
-    <div id="nav" class="nav">
+    <div class="container" id="containerA">
+<div id="nav" class="nav">
 		<div class="icon">
 			<ul>
-			    <li><a title="Home" href="#"><i class="fa fa-home "></i></a></li>
-				<li><a href="About"><i class="fa fa-search "></i></a></li>
-				<li><a href="#"><i class="fa fa-edit "></i></a></li>
-				<li><a href="#"><i class="fa fa-cog "></i></a></li>
+				<li><a title="Home" href="index.html"><i class="fa fa-home "></i></a></li>
+				<li><a href="browseRecipes.html"><i class="fa fa-search "></i></a></li>
+				<li><a href="viewSaved.html"><i class="fa fa-bookmark "></i></a></li>
+				<li><a href="viewPlans.html"><i class="fa fa-columns "></i></a></li>
 	
 			</ul>
 		</div>
-        <div class="text">
-                <ul>
-                    <li><a title="Home" href="#">Home</a></li>
-                        <li><a href="#" >Search</a>
-                    </li>
-                        <li><a href="#" >Contact</a>
-                    </li>
-                        <li><a href="#" >Settings</a>
-                    </li>
-                </ul>
-        </div>
-        <div class="info">
-            <div class="logo"><p>LOGO</p></div>
-            <div class="name">Co. Name</div>
-            <div class="quote">WHAT WE DO IS WHO WE ARE</div>
-            <div class="social"><a target="_blank" href="https://twitter.com/tmrDevelops"><i class="fa fa-twitter"></i></a></div>
-        </div>
+		<div class="text">
+			<ul>
+				<li><a title="Home" href="index.html">Home</a></li>
+					<li><a href="browseRecipes.html" >Browse Recipes</a>
+</li>
+	<li><a href="viewSaved.html" >View Saved</a>
+</li>
+	<li><a href="viewPlans.html" >Make A Plan</a>
+</li>
+			</ul>
+		</div>
+		<div class="info">
+			<div class="logo"><p>LOGO</p></div>
+			<div class="name">Co. Name</div>
+			<div class="quote">WHAT WE DO IS WHO WE ARE</div>
+			<div class="social">
+				<a target="_blank" href="https://twitter.com/tmrDevelops"><i class="fa fa-twitter"></i></a>
+			</div>
+		</div>
     </div>
-</div>
+    </div>
 <!--app container-->
 <div id="overlay"></div>
     <div id="containerB" class="container">

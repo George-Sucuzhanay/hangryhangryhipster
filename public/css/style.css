@@ -1,4 +1,7 @@
-          @import url(https://fonts.googleapis.com/css?family=Raleway:500);
+          @import url(https://fonts.googleapis.com/css?family=Staatliches);
+.title{
+    font-family:Staatliches;
+}
 body {
   width: 100%;
   margin: 0;
@@ -63,8 +66,8 @@ body h1 {
   height: 64px;
   line-height: 64px;
   text-align: center;
-  transform: translate(-7%, 35%);
-  font-size: 2.6em;
+  transform: translate(-7%, 27%);
+  font-size: 2em;
   color: #999;
   text-shadow: 0 1px 0 black;
   transition: all 0.5s ease-out;
@@ -77,6 +80,7 @@ body h1 {
   transform: rotateY(0deg);
 }
 .text {
+  font-family:Staatliches;      
   position: absolute;
   left: 63px;
   top: 0;

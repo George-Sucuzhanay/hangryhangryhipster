@@ -5,11 +5,9 @@
     <title>Browse Recipes</title>
     
         <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
+      href="https://fonts.googleapis.com/css?family=Staatliches"
       rel="stylesheet"
     />
-     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  
 
     <link
       rel="stylesheet"
@@ -25,8 +23,6 @@
         #browse{
         background-color: rgb(230, 84, 73);}
     </style>
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/8.8.1/firebase-app.js"></script>
@@ -50,31 +46,51 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-    <script>src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</script>
-   
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  
+      <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+        
 </head>
 
 <body id="browse">
+      <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                <h5 class="modal-title" id="myModalTitle">Modal title</h5>
+                </div>
+                <div class="modal-body">
+                <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+            </div>
+        </div>
     <div class="container" id="containerA">
 <div id="nav" class="nav">
 		<div class="icon">
 			<ul>
-				<li><a title="Home" href="#"><i class="fa fa-home "></i></a></li>
-				<li><a href="About"><i class="fa fa-search "></i></a></li>
-				<li><a href="#"><i class="fa fa-edit "></i></a></li>
-				<li><a href="#"><i class="fa fa-cog "></i></a></li>
+				<li><a title="Home" href="index.html"><i class="fa fa-home "></i></a></li>
+				<li><a href="browseRecipes.html"><i class="fa fa-search "></i></a></li>
+				<li><a href="viewSaved.html"><i class="fa fa-bookmark "></i></a></li>
+				<li><a href="viewPlans.html"><i class="fa fa-columns "></i></a></li>
 	
 			</ul>
 		</div>
 		<div class="text">
 			<ul>
-				<li><a title="Home" href="#">Home</a></li>
-					<li><a href="#" >Search</a>
+				<li><a title="Home" href="index.html">Home</a></li>
+					<li><a href="browseRecipes.html" >Browse Recipes</a>
 </li>
-	<li><a href="#" >Contact</a>
+	<li><a href="viewSaved.html" >View Saved</a>
 </li>
-	<li><a href="#" >Settings</a>
+	<li><a href="viewPlans.html" >Make A Plan</a>
 </li>
 			</ul>
 		</div>
@@ -88,9 +104,10 @@
 		</div>
     </div>
     </div>
-<!--app container-->
     <div id="overlay"></div>
+    <!--app container-->
     <div id="containerB" class="container">
+        
       <div class="section">
         <div class="column">
           <div class="column has-text-centered">
@@ -102,6 +119,11 @@
           <!-- Note cards will render here -->
         </div>
       </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+        <script>src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</script>  
     <script src="js/browseRecipes.js"></script>    
 </body>
 </html>

@@ -99,17 +99,18 @@ const createCard = (recipeData) => {
     let path = "users/"+userGlobalID+"/favorites"
   return `
             <div class="col-sm-3">
-                <div class="card d--flex align-items-stretch px-0 mb-3 border-0" style="background:white;">
-                    <a href="#exampleModalLong"><img class="card--img-top" src="${image}" alt="${title}" style="width:100%;background-color:black;"></a>
+                <div class="panel d--flex align-items-stretch px-0 mb-3" style="background:white;border:none;">
+                <div class="panel-heading" style="padding:0px;">
+                <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="padding:0px;"><img src="${image}" alt="${title}" style="object-fit:cover;width:100%;background-color:black;"></button></div>
 
-                    <div class="card-body" style="text-align:center;height:2.75vw;">
-                        <a href="https://www.w3schools.com/" target="_blank" style="font-size:1.5vw;font-family:Poppins;overflow:hidden;text-overflow: ellipsis;">${title}</a> 
-                    </div>
-
-                    <div class="card-footer border-0" style="background:white;">
-                        <!--<span href="" class="favme glyphicon glyphicon-heart"></span>-->
-                        <button class="btn" onclick="updateFavorites(${id})"><i id="${id}" class="favme glyphicon glyphicon-heart"></i></button>                 
-                    </div>
+                    <div class="panel-body" style="text-align:center;height:2.75vw;">
+                        <a href="${source}" target="_blank" style="font-size:1.75vw;font-family:Staatliches;display: block;
+                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
+                        text-overflow: ellipsis;}">${title}</a> 
+                    </div class="panel-footer">
+                    <br> <br> <br> <br> <br> <br> 
+                        <button class="btn" onclick="updateFavorites(${id})"><i id="${id}" class="favme glyphicon glyphicon-heart"></i></button>    
+                                     
                 </div>
             </div>`      
 }
