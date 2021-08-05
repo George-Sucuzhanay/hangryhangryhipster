@@ -100,7 +100,7 @@ const createCard = (recipeData) => {
   return `
             <div class="col-sm-3">
                 <div class="card d--flex align-items-stretch px-0 mb-3 border-0" style="background:white;">
-                    <img class="card--img-top" src="${image}" alt="${title}" style="width:100%;background-color:black;">
+                    <a href="#exampleModalLong"><img class="card--img-top" src="${image}" alt="${title}" style="width:100%;background-color:black;"></a>
 
                     <div class="card-body" style="text-align:center;height:2.75vw;">
                         <a href="https://www.w3schools.com/" target="_blank" style="font-size:1.5vw;font-family:Poppins;overflow:hidden;text-overflow: ellipsis;">${title}</a> 
