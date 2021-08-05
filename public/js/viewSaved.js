@@ -78,8 +78,8 @@ function generateRecipeFeed(){
 
 function exploreData(data){
     let arr = [];
-    let = temp = null;
     for(let item in data){
+        let temp = null;
         idFav = data[item];
         //console.log(idFav)
         const spoonacularURL = "https://api.spoonacular.com/recipes/"+idFav+"/information"
@@ -90,12 +90,13 @@ function exploreData(data){
             return response.json();
         })
         .then(myjson => {
-            temp = myjson
+            let stringy = JSON.stringify(myjson)
+            temp = stringy
         });
-        arr.push(temp)
         //console.log("pushed")
+        arr.push(temp)
         };
-        //console.log(arr.length)
+        console.log(arr.length)
     return arr;
 }
 

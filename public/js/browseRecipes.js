@@ -202,6 +202,8 @@ function fillModal(id){
         info.dairyFree, info.weightWatcherSmartPoints, info.healthScore, info.title, info.readyInMinutes, info.servings, info.summary, info.dishTypes, info.diets, info.analyzedInstructions 
     ]
         myModalTitle.innerHTML = modalInfo[6];
-        myModalBody.innerHTML = "";
+        myModalBody.innerHTML = `
+        
+        `
     });
 }
