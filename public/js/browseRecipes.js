@@ -91,7 +91,6 @@ const createCard = (recipeData) => {
     let image = recipeData.image;
     let title = recipeData.title;
     let source = recipeData.spoonacularSourceUrl;
-    let likes = recipeData.aggregateLikes;
 
     if(image===undefined){
         image="https://media.istockphoto.com/photos/question-mark-made-of-corn-seeds-on-plate-picture-id467083203?k=6&m=467083203&s=612x612&w=0&h=pfMfAgrliETJB2cUsxQBIkSXNlAKT4gf4hEEz80r4Hw="
@@ -101,7 +100,7 @@ const createCard = (recipeData) => {
             <div class="col-sm-3">
                 <div class="panel d--flex align-items-stretch px-0 mb-3" style="background:white;border:none;">
                 <div class="panel-heading" style="padding:0px;">
-                <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="padding:0px;"><img src="${image}" alt="${title}" style="object-fit:cover;width:100%;background-color:black;"></button></div>
+                <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="padding:0px;" onclick="fillModal(${id})"><img src="${image}" alt="${title}" style="object-fit:cover;width:100%;background-color:black;"></button></div>
 
                     <div class="panel-body" style="text-align:center;height:2.75vw;">
                         <a href="${source}" target="_blank" style="font-size:1.75vw;font-family:Staatliches;display: block;
@@ -181,4 +180,27 @@ function updateFavorites(id){
                 }
             })
                 }
+}
+
+function fillModal(id){
+    let myModalTitle = document.querySelector("#myModalTitle");
+    let myModalBody = document.querySelector("#myModalBody");
+    let info = null;
+    const spoonacularURL = "https://api.spoonacular.com/recipes/"+id+"/information"
+    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&number=100"
+    fetch(authorizedURL)
+    .then(response => {
+        return response.json();
+    })
+    .then(myjson => {
+        //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
+        info = myjson;
+    });
+    let modalInfo = [
+        info.vegetarian, info.vegan, info.glutenFree,
+        info.dairyFree, info.weightWatcherSmartPoints, info.healthScore, info.title, info.readyInMinutes, info.servings, info.summary, info.dishTypes, info.diets, info.analyzedInstructions 
+    ]
+    myModalTitle.innerHTML = id;
+    console.log(id)
 }
