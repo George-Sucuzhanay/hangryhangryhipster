@@ -163,7 +163,7 @@
             </style>
             <table class="buttons">
                 <tr>
-                    <td style="padding-right:10px;"><button style="background-color:rgb(250, 217, 5);" type="button">Make A Plan</button>
+                    <td style="padding-right:10px;"><button style="background-color:rgb(250, 217, 5);" type="button" onclick="makePlan()" >Make A Plan</button>
                     <td style="padding-left:10px"><button style="background-color:rgb(250, 217, 5);" type="button">Send Grocery List</button>
                     </tr>
                 <tr>
@@ -182,7 +182,7 @@
                                     <br>
                                     <p>Monday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="monFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -190,7 +190,7 @@
                                     <br>
                                     <p>Monday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="monBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                                     <br>
                                     <p>Tuesday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="tuesFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -213,7 +213,7 @@
                                     <br>
                                     <p>Tuesday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="tuesBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
                                     <br>
                                     <p>Wednesday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="wedFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -235,7 +235,7 @@
                                     <br>
                                     <p>Wednesday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="wedBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                                     <br>
                                     <p>Thursday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="thursFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -257,7 +257,7 @@
                                     <br>
                                     <p>Thursday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="thursBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
@@ -271,7 +271,7 @@
                                     <br>
                                     <p>Friday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="friFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -279,7 +279,7 @@
                                     <br>
                                     <p>Friday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="friBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@
                                     <br>
                                     <p>Saturday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="satFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                             <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
@@ -301,7 +301,7 @@
                                     <br>
                                     <p>Saturday</p>
                                 </div>
-                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="satBack" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>

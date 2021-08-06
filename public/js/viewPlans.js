@@ -8,9 +8,7 @@ window.onload = event => {
         // Console log the user to confirm they are logged in
         console.log("Logged in as: " + user.displayName);
         const googleUserId = user.uid;
-        userGlobalID = googleUserId;
-        //recipeFeed();   
-        generateRecipeFeed();   
+        userGlobalID = googleUserId;  
     } else {
       // If not logged in, navigate back to login page.
       window.location = "index.html";
@@ -18,128 +16,75 @@ window.onload = event => {
   });
 };
 
-//for testing: apiKey = 26d5ee965b7041448718ba0f2475dc94
-//for deploy: apiKey = xxx 
-// function recipeFeed() {
-//     //will return 5078 recipe cards for browsing
-//     //
-//     const spoonacularURL = "https://api.spoonacular.com/recipes/random"
-
-//     const apiKey = "26d5ee965b7041448718ba0f2475dc94"
-
-//     const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&number=100"
-
-//     fetch(authorizedURL)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(myjson => {
-//         //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
-//         console.log(myjson);
-//         storeRecipes(myjson)
-//     });
-// }
-
-//to avoid filling api request quota
-// function storeRecipes(myjson){
-//     console.log('entered')
-//     firebase
-//         .database()
-//         .ref(`recipes`)
-//         .push({
-//             JSONObj: myjson
-//         });
-//     const recipes = firebase.database().ref(`recipes`);
-//     recipes.on("value", snapshot => {
-//         const data = snapshot.val();
-//         console.log(data)
-//   });
-// };
-
-let globalRecipeData = null
-
-function generateRecipeFeed(){
-    const recipes = firebase.database().ref(`recipes`);
+function makePlan(){    
+    const recipes = firebase.database().ref(`users/${userGlobalID}/favorites`);
     recipes.on("value", snapshot => {
+        let arr = []
         const data = snapshot.val();
-        globalRecipeData = data;
-        let recipeArray = exploreData(globalRecipeData);
-        renderDataAsHTML(recipeArray);
-  });
+        if(data!=null)
+        {
+            for(let item in Object.keys(data)){
+                globalRecipeData = data;
+                idFavs = data[Object.keys(data)[item]].recipeID;
+                //console.log('here')
+                arr.push(idFavs);
+            }
+            //console.log(arr.length)
+            if(arr.length<6){
+                alert("You need at least 6 items favorited to make a plan.")
+            }
+            else{
+                // Shuffle array
+                const shuffled = arr.sort(() => 0.5 - Math.random());
+                let selected = shuffled.slice(0, 6);
+                const spoonacularURL = "https://api.spoonacular.com/recipes/informationBulk"
+                const apiKey = "c9a6277cf82249b9b64ccaeb744230f8"
+                const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&ids=" + selected.toString()
+                fetch(authorizedURL)
+                .then(response => {
+                    return response.json();
+                })
+                .then(myjson => {
+                    //price breakdown by ID returns HTML
+                    //https://api.spoonacular.com/recipes/1082038/priceBreakdownWidget
+                    //ingredient breakdown by ID returns HTML
+                    //https://api.spoonacular.com/recipes/1082038/ingredientWidget
+                    console.log(myjson)
+                    let arr=[];
+                    for(let item in myjson){
+                    arr.push(myjson[item])
+                    }
+                    console.log(arr)
+                    let ing = parseExtendedIngredients(arr,0)
+                    document.querySelector("#monFront").innerHTML=`<p>${arr[0].title}</p>`
+
+                    document.querySelector("#monBack").innerHTML=`<p>a</p>`
+
+                    document.querySelector("#tuesFront").innerHTML=`<p>${arr[1].title}</p>`
+
+                    document.querySelector("#tuesBack").innerHTML=`<p>a</p>`
+
+                    document.querySelector("#wedFront").innerHTML=`<p>${arr[2].title}</p>`
+
+                    document.querySelector("#wedBack").innerHTML=`<p>a</p>`
+
+                    document.querySelector("#thursFront").innerHTML=`<p>${arr[3].title}</p>`
+
+                    document.querySelector("#thursBack").innerHTML=`<p>a</p>`
+
+                    document.querySelector("#friFront").innerHTML=`<p>${arr[4].title}</p>`
+
+                    document.querySelector("#friBack").innerHTML=`<p>a</p>`
+
+                    document.querySelector("#satFront").innerHTML=`<p>${arr[5].title}</p>`
+
+                    document.querySelector("#satBack").innerHTML=`<p></p>`
+                });
+            }
+        }
+    });
 }
 
-function exploreData(data){
-    let jsonObj = null;
-    for(let item in data){
-        jsonObj = data[item].JSONObj.recipes;
-        //console.log(jsonObj);
-    };
-    // console.log(jsonObj[0])
-    // for(let item in jsonObj){
-    //     console.log(jsonObj[item])
-    // }
-    return jsonObj;
+function parseExtendedIngredients(){
+
 }
-
-const createCard = (recipeData) => {
-
-    let id = recipeData.id;
-    let image = recipeData.image;
-    let title = recipeData.title;
-    let source = recipeData.spoonacularSourceUrl;
-    let likes = recipeData.aggregateLikes;
-
-    if(image===undefined){
-        image="https://media.istockphoto.com/photos/question-mark-made-of-corn-seeds-on-plate-picture-id467083203?k=6&m=467083203&s=612x612&w=0&h=pfMfAgrliETJB2cUsxQBIkSXNlAKT4gf4hEEz80r4Hw="
-    }    
-
-  return `
-        <div class="row">
-        <div class="col">
-            <img src="${image} alt="${title}" class="img-fluid">
-            <div class="card-body">
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
-        </div>
-        <div class="col">
-            <img src="${image} alt="${title}"  class="img-fluid">
-            <div class="card-body">
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
-        </div>
-        <div class="col">
-            <img src="${image} alt="${title}z" class="img-fluid">
-            <div class="card-body">
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
-        </div>
-        <div class="col">
-            <img src="${image} alt="${title}" class="img-fluid">
-            <div class="card-body">
-                 
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
-        </div>
-        <div class="col">
-            <img src="${image} alt="${title}" class="img-fluid">
-            <div class="card-body">
-                    <h4 class="card-title text-center">${title}</h4>
-                </div>
-        </div>
-    </div>
-            
-            `;
-}
-
-const renderDataAsHTML = (data) => {
-    //let cards = `<div class="card-deck"></div>`;
-    let cards = ""
-    for (let item in data) {
-        console.log(data[item])
-        cards+=createCard(data[item])
-  }
-  document.querySelector("#app").innerHTML = cards;
-};
-
-
-
