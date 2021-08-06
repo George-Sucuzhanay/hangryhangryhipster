@@ -70,6 +70,15 @@
 
   </head>
   <body>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                        <div id="extra">
+                        </div>
+                    </div>
+                </div>
+            </div>    
     <div class="container" id="containerA">
 <div id="nav" class="nav">
 		<div class="icon">
@@ -161,7 +170,7 @@
                     text-align: center;
                 }
             </style>
-            <table class="buttons">
+            <table class="buttons" style="border:0px;">
                 <tr>
                     <td style="padding-right:10px;"><button style="background-color:rgb(250, 217, 5);" type="button" onclick="makePlan()" >Make A Plan</button>
                     <td style="padding-left:10px"><button style="background-color:rgb(250, 217, 5);" type="button">Send Grocery List</button>
@@ -171,9 +180,27 @@
                     <td style="padding:10px"><button style="background-color:rgb(250, 217, 5);" type="button">Input Coupons</button>
                 </tr>
             </table></div>
-            <br>
+            <br>        
             <div class="row">   
-
+                <style>
+                    p{
+                        font-family: Londrina Solid;
+                    }
+                    th, td {
+                        padding: 5px;
+                        text-align: center;
+                        }
+                        #t01 tr:nth-child(even) {
+                        background-color: #eee;
+                        }
+                        #t01 tr:nth-child(odd) {
+                        background-color: #fff;
+                        }
+                        #t01 th {
+                        background-color: black;
+                        color: white;
+                    }
+                </style>
                 <div class="col-sm-2">
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -185,16 +212,18 @@
                                 <div class="card-body" id="monFront" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
-                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                            <div class="card flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
                                 <div class="card-header" style="padding:0px;">
                                     <br>
                                     <p>Monday</p>
                                 </div>
-                                <div class="card-body" id="monBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="0" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <button id="btnMon" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div>  
 
                 <div class="col-sm-2">
@@ -213,11 +242,12 @@
                                     <br>
                                     <p>Tuesday</p>
                                 </div>
-                                <div class="card-body" id="tuesBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="1" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <br>
+                                        <button id="btnTues" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div>  
                 <div class="col-sm-2">
                     <div class="flip-card">
@@ -235,11 +265,12 @@
                                     <br>
                                     <p>Wednesday</p>
                                 </div>
-                                <div class="card-body" id="wedBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="2" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <br>
+                                        <button id="btnWed" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div>  
                 <div class="col-sm-2">
                     <div class="flip-card">
@@ -257,11 +288,12 @@
                                     <br>
                                     <p>Thursday</p>
                                 </div>
-                                <div class="card-body" id="thursBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="3" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <br>
+                                        <button id="btnThurs" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div> 
                 <div class="col-sm-2">
                     <div class="flip-card">
@@ -279,11 +311,12 @@
                                     <br>
                                     <p>Friday</p>
                                 </div>
-                                <div class="card-body" id="friBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="4" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <br>
+                                        <button id="btnFri" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div> 
                 <div class="col-sm-2">
                     <div class="flip-card">
@@ -301,11 +334,12 @@
                                     <br>
                                     <p>Saturday</p>
                                 </div>
-                                <div class="card-body" id="satBack" style="text-align:center;height:2.75vw;">  
+                                <div class="card-body" id="5" style="text-align:center;height:2.75vw;">  
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <br>
+                                        <button id="btnSat" type="button" class="btn btn-success hidden" data-toggle="modal" data-target="#extra" style="font-family: Staatliches;">View More</button>
                 </div> 
                          
             </div>
