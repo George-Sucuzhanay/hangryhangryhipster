@@ -38,7 +38,7 @@ function makePlan(){
                 const shuffled = arr.sort(() => 0.5 - Math.random());
                 let selected = shuffled.slice(0, 6);
                 const spoonacularURL = "https://api.spoonacular.com/recipes/informationBulk"
-                const apiKey = "9a3b42061bbc447fb83d3ee7c6df67f7"
+                const apiKey = "674d71d05662414fbb8e39eb0ac513c1"
                 const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&ids=" + selected.toString()
                 fetch(authorizedURL)
                 .then(response => {
@@ -83,7 +83,7 @@ function makePlan(){
 function widgetGenerator(arr){
     for(let item in arr){
         const spoonacularURL = "https://api.spoonacular.com/recipes/" + arr[item] + "/nutritionWidget"
-        const apiKey = "9a3b42061bbc447fb83d3ee7c6df67f7"
+        const apiKey = "674d71d05662414fbb8e39eb0ac513c1"
         const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&defaultCss=true"
             fetch(authorizedURL)
             .then(response => {

@@ -206,7 +206,7 @@ function fillModal(id){
     let instructions = document.querySelector("#instructions");
     //console.log(id)
     const spoonacularURL = "https://api.spoonacular.com/recipes/"+id+"/information"
-    const apiKey = "05a407444b3b4d0d8aaa0bfc0d247b07"
+    const apiKey = "a1cb79d0212e4c9ead6e99ac93c0e730"
     const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
     fetch(authorizedURL)
     .then(response => {
@@ -276,7 +276,7 @@ searchBar.addEventListener(
     const searchString = e.target.value.toLowerCase();
     //document.querySelector("#app").innerHTML = "";
         const spoonacularURL = "https://api.spoonacular.com/recipes/complexSearch"
-        const apiKey = "05a407444b3b4d0d8aaa0bfc0d247b07"
+        const apiKey = "6d3cfce4063241e5a17a8b18a188c0b0"
         const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&query=" + searchString
         fetch(authorizedURL)
         .then(response => {

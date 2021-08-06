@@ -98,12 +98,12 @@
             <figure class="swing">
             <div style="word-wrap:break;width:200px;background-color:wheat;">
                 <p id="joke" style="color:black; font-family: Staatliches; font-size:15px;">This is a test.</p>
-                <!-- <script>
+                <script>
                     let jokes = document.querySelector("#joke")
-                    const spoonacularURL = "https://api.spoonacular.com/food/jokes/random"
-                    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
-                    const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
-                    fetch(authorizedURL)
+                    const spoonacularURL2 = "https://api.spoonacular.com/food/jokes/random"
+                    const apiKey2 = "d585bba9dc6d478b89bc5340b7122f26"
+                    const authorizedURL2 = spoonacularURL2 + "?apiKey=" + apiKey2
+                    fetch(authorizedURL2)
                     .then(response => {
                         return response.json();
                     })
@@ -111,7 +111,7 @@
                         //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
                         jokes.innerHTML = myjson.text
                     });
-        </script> -->
+        </script>
             </div>
         </figure>  
 		</div>
@@ -121,10 +121,10 @@
     <div id="overlay">
                 <div class="container vertical-center" style="padding:20px;">
         <p id="trivia" style="display:flex;justify-content:center;color:white;font-size:50px;font-family:Londrina Solid; text-align:center;margin-right: 100px;margin-left: 650px;">This is a Test</p>
-        <!-- <script>
+        <script>
     let trivia = document.querySelector("#trivia")
     const spoonacularURL = "https://api.spoonacular.com/food/trivia/random"
-    const apiKey = "26d5ee965b7041448718ba0f2475dc94"
+    const apiKey = "d585bba9dc6d478b89bc5340b7122f26"
     const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
     fetch(authorizedURL)
     .then(response => {
@@ -134,7 +134,7 @@
         //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
         trivia.innerHTML = "Fun Food Fact: " + myjson.text
     });
-        </script> -->
+        </script>
         </div>
     </div>
     <!--app container-->
@@ -143,7 +143,7 @@
       <div class="section">
         <div class="column">
           <div class="column has-text-centered">
-            <h1 class="title">Browse Recipes</h1>
+            <h1 class="title">View Saved</h1>
             <br>
           </div>
         </div>
