@@ -145,119 +145,172 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-lg btn-primary" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Gen New Plan</button>
-                    <br>
-                    <button type="button" class="btn btn-lg btn-info" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">View Past Plans</button>
-                </div>
-                <div class="col d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-lg btn-warning" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Send Phone Reminder + Route</button>
-                    <br>
-                    <button type="button" class="btn btn-lg btn-success" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Order Ingredients Online</button>
-                </div>
-            </div><br><br>
-            <div class="row">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Input your Recipe Here">
-            </div>
-             <br><br>
-            <div class="row">
-            <div class="col">
-                <div class="card card-dark panel d--flex align-items-stretch px-0 mb-3">
-                    <div class="panel-body">
-                        <h3 class="card-title" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Monday</h3>
-                        <p class="card-text" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">With supporting text below..</p>
-                        <a href="#" class="btn btn-outline-secondary" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Outline</a>
+            <style>
+                .buttons {
+                    width: 100%;
+                    table-layout: fixed;
+                    border-collapse: collapse;
+                    background-color: rgba(250, 217, 5, 0);
+                }
+
+                .buttons button {
+                    width: 100%;
+                    background-color: rgba(250, 217, 5, 0);
+                    border-radius:8px;
+                    font-family:Staatliches;
+                    text-align: center;
+                }
+            </style>
+            <table class="buttons">
+                <tr>
+                    <td style="padding-right:10px;"><button style="background-color:rgb(250, 217, 5);" type="button">Make A Plan</button>
+                    <td style="padding-left:10px"><button style="background-color:rgb(250, 217, 5);" type="button">Send Grocery List</button>
+                    </tr>
+                <tr>
+                    <td style="padding:10px;"><button style="background-color:rgb(250, 217, 5);" type="button">View Past Plans</button>
+                    <td style="padding:10px"><button style="background-color:rgb(250, 217, 5);" type="button">Input Coupons</button>
+                </tr>
+            </table></div>
+            <br>
+            <div class="row">   
+
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Monday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Monday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-dark panel d--flex align-items-stretch px-0 mb-3">
-                    <div class="panel-body">
-                        <h3 class="card-title" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Tuesday</h3>
-                        <p class="card-text" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">With supporting text below..</p>
-                        <a href="#" class="btn btn-outline-secondary" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Outline</a>
+                </div>  
+
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Tuesday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Tuesday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-dark panel d--flex align-items-stretch px-0 mb-3">
-                    <div class="panel-body">
-                        <h3 class="card-title" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Wednesday</h3>
-                        <p class="card-text" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">With supporting text below..</p>
-                        <a href="#" class="btn btn-outline-secondary" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Outline</a>
+                </div>  
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Wednesday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Wednesday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-dark panel d--flex align-items-stretch px-0 mb-3 ">
-                    <div class="panel-body">
-                        <h3 class="card-title" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Thursday</h3>
-                        <p class="card-text" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">With supporting text below..</p>
-                        <a href="#" class="btn btn-outline-secondary" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Outline</a>
+                </div>  
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Thursday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Thursday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-dark panel d--flex align-items-stretch px-0 mb-3">
-                    <div class="panel-body">
-                        <h3 class="card-title" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Friday</h3>
-                        <p class="card-text" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">With supporting text below..</p>
-                        <a href="#" class="btn btn-outline-secondary btn-viewplans" style="font-size:1.75vw;font-family:Staatliches;display: block;
-                        display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
-                        text-overflow: ellipsis;">Outline</a>
+                </div> 
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Friday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Friday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div> 
+                <div class="col-sm-2">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="card-deck flip-card-front d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Saturday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                            <div class="card-deck flip-card-back d--flex align-items-stretch mb-3" style="background:white;border:none;">
+                                <div class="card-header" style="padding:0px;">
+                                    <br>
+                                    <p>Saturday</p>
+                                </div>
+                                <div class="card-body" style="text-align:center;height:2.75vw;">  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                         
             </div>
-            <!-- <div id="app" class="row"> -->
-                <!-- Note cards will render here -->
-            <!-- </div> -->
+        </div>
     </div>
-
-    
-
-
-
-    <!--
-    -->
-        <!-- break -->
 
     <script src="js/viewPlans.js"></script>  
     <!-- <script>
