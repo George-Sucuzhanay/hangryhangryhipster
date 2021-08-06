@@ -86,7 +86,7 @@ function exploreData(data){
         recipeGlobalIDArr.push(idFav)
         console.log(idFav)
         const spoonacularURL = "https://api.spoonacular.com/recipes/"+idFav+"/information"
-        const apiKey = "26c949c96bd14a5782800a2b49969bc8"
+        const apiKey = "05a407444b3b4d0d8aaa0bfc0d247b07"
         const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
         fetch(authorizedURL)
         .then(response => {

@@ -60,10 +60,74 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                <h5 class="modal-title" id="myModalTitle">Modal title</h5>
+                <h5 class="modal-title" id="myModalTitle" style="font-family:Staatliches;font-size:large;">Modal title</h5>
                 </div>
-                <div class="modal-body" id="myModalBody">
-                <p>Some text in the modal.</p>
+                <div class="modal-body" id="myModalBody" style="font-family:Londrina Solid;padding:20px;">
+                    <section>
+                        <button id="veg" type="button" class="btn btn-success">Vegetarian</button>
+                        <button id="vegan" type="button" class="btn btn-primary">Vegan</button>
+                        <button id="gluten" type="button" class="btn btn-warning">Gluten-Free</button>
+                        <button id="dairy" type="button" class="btn btn-info">Dairy-Free</button>
+                        <button id="healthy" type="button" class="btn btn-secondary" style="color:white;background-color:purple;">Healthy</button>
+                        <button id="pop" type="button" class="btn btn-danger">Popular</button>
+                    </section>
+                    <br>
+                    <section>
+                        <style>
+                            table {
+                                border-collapse: collapse;
+                                width: 100%;
+                                }
+
+                                td, th {
+                                border: 1px solid #dddddd;
+                                text-align: center;
+                                padding: 8px;
+                                }
+
+                        </style>
+                        
+<table class="hidden">
+  <tr>
+    <th>Servings</th>
+    <th>Ready In Minutes</th>
+    <th>WW t Points</th>
+    <th>Health Score</th>
+    <th>Price/Serving</th>
+  </tr>
+  <tr>
+                            <td id="servings">No Data Provided</td>
+                            <td id="ready">No Data Provided</td>
+                            <td id="weight">No Data Provided</td>
+                            <td id="health">No Data Provided</td>
+                            <td id="price">No Data Provided</td>
+  </tr>
+</table>
+                        <table id="table">
+                        <tr>
+                            <th>Servings</th>
+                            <th>Ready in Minutes</th>
+                            <th>WW Smart Points</th>
+                            <th>Health Score</th>
+                            <th>Price/Serving</th>
+                        </tr>
+                        <tr>
+                            <td id="servings">No Data Provided</td>
+                            <td id="ready">No Data Provided</td>
+                            <td id="weight">No Data Provided</td>
+                            <td id="health">No Data Provided</td>
+                            <td id="price">No Data Provided</td>
+                        </tr>
+                        </table>
+                    </section>
+                        <br>
+                    <section>
+                        <p id="summary" style="font-size: 15px;text-align: justify;text-justify: inter-word;"></p>
+                    </section>
+                    <br>
+                    <section>
+                        <p id="instructions" style="font-size:15px;text-align: justify;text-justify: inter-word; padding:40px;"></p>
+                    </section>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

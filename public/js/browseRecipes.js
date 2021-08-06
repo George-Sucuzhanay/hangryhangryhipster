@@ -107,7 +107,7 @@ const createCard = (recipeData) => {
                         display: -webkit-box;margin: 0 auto;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;
                         text-overflow: ellipsis;}">${title}</a> 
                     </div class="panel-footer">
-                    <br> <br> <br> <br> <br> <br> 
+                    <br> <br> <br> <br> <br> 
                         <button class="btn" onclick="updateFavorites(${id})"><i id="${id}" class="favme glyphicon glyphicon-heart"></i></button>    
                                      
                 </div>
@@ -185,10 +185,28 @@ function updateFavorites(id){
 
 function fillModal(id){
     let myModalTitle = document.querySelector("#myModalTitle");
-    let myModalBody = document.querySelector("#myModalBody");
+    let veg = document.querySelector("#veg");
+    veg.classList.remove('hidden')
+    let vegan = document.querySelector("#vegan");
+    vegan.classList.remove('hidden')
+    let gluten = document.querySelector("#gluten");
+    gluten.classList.remove('hidden')
+    let dairy = document.querySelector("#dairy");
+    dairy.classList.remove('hidden')
+    let healthy = document.querySelector("#healthy");
+    healthy.classList.remove('hidden')
+    let pop = document.querySelector("#pop");
+    pop.classList.remove('hidden')
+    let servings = document.querySelector("#servings");
+    let ready = document.querySelector("#ready");
+    let health = document.querySelector("#health");
+    let price = document.querySelector("#price");
+    let weight = document.querySelector("#weight");
+    let summary = document.querySelector("#summary");
+    let instructions = document.querySelector("#instructions");
     //console.log(id)
     const spoonacularURL = "https://api.spoonacular.com/recipes/"+id+"/information"
-    const apiKey = "26c949c96bd14a5782800a2b49969bc8"
+    const apiKey = "05a407444b3b4d0d8aaa0bfc0d247b07"
     const authorizedURL = spoonacularURL + "?apiKey=" + apiKey
     fetch(authorizedURL)
     .then(response => {
@@ -196,25 +214,92 @@ function fillModal(id){
         return response.json();
     })
     .then(info => {
+        //console.log(info)
         //THIS IS WHERE YOU HANDLE THE RESPONSE JSON
-            let modalInfo = [
-        info.vegetarian, info.vegan, info.glutenFree,
-        info.dairyFree, info.weightWatcherSmartPoints, info.healthScore, info.title, info.readyInMinutes, info.servings, info.summary, info.dishTypes, info.diets, info.analyzedInstructions 
-    ]
-        myModalTitle.innerHTML = modalInfo[6];
-        myModalBody.innerHTML = `
-            <button type="button" class="btn btn-success">Vegetarian</button>
-            <button type="button" class="btn btn-primary">Vegan</button>
+        myModalTitle.innerHTML = info.title;
+        if(info.vegetarian==null || info.vegetarian==false){
+            console.log('a')
+            veg.classList.add("hidden")
+        }
+        if(info.vegan==null || info.vegan==false){
+            console.log('b')
+            vegan.classList.add("hidden")
+        }
+        if(info.glutenFree==null || info.glutenFree==false){
+            console.log('c')
+            gluten.classList.add("hidden")
+        }
+        if(info.dairyFree==null || info.dairyFree==false){
+            console.log('d')
+            dairy.classList.add("hidden")
+        }
+        if(info.veryHealthy==null || info.veryHealthy==false){
+            console.log('e')
+            health.classList.add("hidden")
+        }
+        if(info.veryPopular==null || info.veryPopular==false){
+            console.log('f')
+            pop.classList.add("hidden")
+        }
 
-            <button type="button" class="btn btn-warning">Gluten-Free</button>
-            <button type="button" class="btn btn-info">Dairy-Free</button>
-
-            <p>This meal can be eaten for ${modalInfo[10]}, </p>
-            <p>${modalInfo[7]}</p>
-            <p>Meal ready in ${modalInfo[8]} mins</p>
-            <p>${modalInfo[9]}</p>
-
-
-        `
+        var table = document.querySelector("#table")
+        if(info.servings!=null){
+            table.rows[1].cells[0].innerHTML = info.servings;
+        }
+        if(info.readyInMinutes!=null){
+            table.rows[1].cells[1].innerHTML = info.readyInMinutes;
+        }
+        if(info.healthScore!=null){
+            table.rows[1].cells[3].innerHTML = info.healthScore;
+        }
+        if(info.pricePerServing!=null){
+            table.rows[1].cells[4].innerHTML = info.pricePerServing;
+        }
+        if(info.weightWatcherSmartPoints!=null){
+            table.rows[1].cells[2].innerHTML = info.weightWatcherSmartPoints;
+        }
+        if(info.summary!=null){
+            summary.innerHTML=info.summary
+        }
+        if(info.instructions!=null){
+            instructions.innerHTML=info.instructions
+        }
     });
 }
+
+const searchBar = document.querySelector(".form-control");
+
+searchBar.addEventListener(
+  "keyup",
+  e => {
+      console.log("searching")
+    const searchString = e.target.value.toLowerCase();
+    //document.querySelector("#app").innerHTML = "";
+        const spoonacularURL = "https://api.spoonacular.com/recipes/complexSearch"
+        const apiKey = "05a407444b3b4d0d8aaa0bfc0d247b07"
+        const authorizedURL = spoonacularURL + "?apiKey=" + apiKey + "&query=" + searchString
+        fetch(authorizedURL)
+        .then(response => {
+            console.log('fetching search')
+            return response.json();
+        })
+        .then(results => {
+            let arr=[];
+            for(let item in results.results){
+                arr.push(results.results[item])
+            }
+            
+            if (arr.length !== 0) {
+                //console.log("valid search")
+            let cards = "";
+            document.querySelector("#app").innerHTML = "";
+            for (let result in arr) {
+                cards += createCard(arr[result]);
+                //console.log(arr[result]);
+            }
+            document.querySelector("#app").innerHTML = cards;
+            } else {
+            document.querySelector("#app").innerHTML = "No matches found. Try searching something else.";
+            }
+  });
+});
