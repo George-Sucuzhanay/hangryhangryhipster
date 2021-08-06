@@ -203,7 +203,18 @@ function fillModal(id){
     ]
         myModalTitle.innerHTML = modalInfo[6];
         myModalBody.innerHTML = `
-        
+            <button type="button" class="btn btn-success">Vegetarian</button>
+            <button type="button" class="btn btn-primary">Vegan</button>
+
+            <button type="button" class="btn btn-warning">Gluten-Free</button>
+            <button type="button" class="btn btn-info">Dairy-Free</button>
+
+            <p>This meal can be eaten for ${modalInfo[10]}, </p>
+            <p>${modalInfo[7]}</p>
+            <p>Meal ready in ${modalInfo[8]} mins</p>
+            <p>${modalInfo[9]}</p>
+
+
         `
     });
 }
